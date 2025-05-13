@@ -1,0 +1,283 @@
+/* Estilos generales para todo el documento */
+
+body{
+    /* Establece una fuente de letra predeterminada para todo el texto de la página */
+    font-family: 'Courier New', Courier, monospace;
+    /* Define un margen superior de 0 para eliminar el espacio predeterminado del navegador */
+    margin-top: 0;
+    /* Establece un margen a los lados del cuerpo para centrar el contenido y evitar que toque los bordes */
+    margin-left: 20px;
+    margin-right: 20px;
+    /* Define un margen inferior para asegurar que el contenido no quede pegado al pie de página */
+    margin-bottom: 20px;
+    background-color: #1a1c22;
+}
+
+/* Estilos para el encabezado de la página */
+header{
+    /* Un color sólido y distintivo como el 'Bleu Ciel' para el encabezado */
+    background-color: #7393b3;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    color: #ffffff;
+}
+
+/* Estilos para la barra de navegación */
+nav {
+    text-align: center;
+    background-color: #7aa1c7;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    position: fixed;
+}
+
+/* Estilos para la lista no ordenada dentro de la navegación */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+/* Estilos para cada elemento de la lista dentro de la navegación */
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Estilos para los enlaces dentro de la navegación */
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px; /* Añade un pequeño relleno alrededor de los enlaces para facilitar su clic */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+     /* Define una transición suave para los cambios de estado (como el hover) */
+}
+
+/* Estilos para los enlaces de navegación cuando el ratón pasa por encima */
+nav a:hover {
+    /* Usamos un color que contraste ligeramente, como un tono crema */
+    background-color: #4a6e91;
+    color: #fff;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 72px;
+    background: #7393b3;
+    color: #f7f7f7;
+}
+
+.navbar a {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    height: 72px;
+}
+
+.navbar a:hover {
+    opacity: 1;
+    color: white;
+    background: #7393b3;
+}
+
+.dropdown {
+    position: absolute;
+    z-index: 1;
+    top: 72px;
+    left: 0;
+    width: 140px;
+    padding: 16px 10px 6px;
+    height: max-content;
+    display: none;
+    background: #2d2e40;
+    transition: 0.3s;
+}
+
+.dropdown::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    top: 10px;
+    background: #2d2e40;
+    border-radius: 8px;
+}
+
+.dropdown > div > a {
+    position: relative;
+    z-index: 1;
+    height: 40px;
+    opacity: 0.5;
+    white-space: nowrap;
+}
+
+.dropdown > div {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 222px;
+}
+
+.menu:hover .dropdown,
+.menu a:hover ~ .dropdown,
+.dropdown:hover {
+    display: grid;
+}
+
+.menu > a {
+    width: 90px;
+    height: 330px;
+    opacity: 0.5s;
+    transition: 0.3s;
+}
+
+.menu > a:nth-child(1):hover ~ .dropdown {
+    translate: 130px 0;
+}
+
+.menu > a:nth-child(2):hover ~ .dropdown {
+    translate: 220px 0;
+}
+
+.menu > a:nth-child(3):hover ~ .dropdown {
+    translate: 310px 0;
+}
+
+.menu > a:nth-child(1):hover ~ .dropdown .dropdown-1
+.menu > a:nth-child(2):hover ~ .dropdown .dropdown-2
+.menu > a:nth-child(3):hover ~ .dropdown .dropdown-3{
+    display: block;
+}
+
+
+
+/* Estilos para el contenedor del carrusel */
+.carousel-container {
+    margin: 30px auto;
+    max-width: 456px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #d3d0c6;
+    border-radius: 5px;
+}
+
+/* Estilos para el carrusel en sí */
+.carousel {
+    display: flex;
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Estilos para cada elemento (imagen) dentro del carrusel */
+.carousel-item {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+/* Estilos para las imágenes dentro del carrusel */
+.carousel img {
+    width: 100%;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    display: block;
+}
+
+/* Estilos para los botones de navegación del carrusel */
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Usamos un color neutro pero funcional para los botones */
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-radius: 3px;
+}
+
+.prev-button {
+    left: 5px;
+}
+
+.next-button {
+    right: 5px;
+}
+
+/* Estilos para los botones de navegación cuando el ratón pasa por encima */
+.prev-button:hover, .next-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos para la sección de contenido principal */
+.content {
+    margin: 30px;
+    padding: 30px;
+    /* Un blanco roto o un tono arena suave para el contenido */
+    background-color: #FAF0E6; /* Aproximación a un tono arena claro */
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+    /* Convertimos el contenedor de contenido a Flexbox */
+    display: grid;
+    /* Alineamos el contenido principal a la izquierda y el botón a la derecha */
+    justify-content: space-between;
+    /* Aseguramos que los elementos se alineen verticalmente al inicio */
+    align-items: flex-start;
+}
+
+/* Estilos para el botón de WhatsApp */
+#whatsapp-button {
+    /* Mantenemos el verde característico, pero podríamos usar un tono más "puro" */
+    background-color: #78eea3;
+    color: rgb(109, 107, 107);
+    border: none;
+    padding: 12px 25px; /* Más grande y espaciado */
+    cursor: pointer;
+    border-radius: 8px; /* Bordes más redondeados */
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 0px;
+    font-size: 1em; /* Aseguramos un tamaño de fuente consistente */
+}
+
+/* Estilos para la imagen dentro del botón de WhatsApp */
+#whatsapp-button img {
+    height: 40px; /* Un poco más grande */
+    vertical-align: middle;
+    margin-right: 24px;
+}
+
+/* Estilos para el botón de WhatsApp cuando el ratón pasa por encima */
+#whatsapp-button:hover {
+    background-color: #34e675;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #7393B3; /* Usamos el mismo color del encabezado para consistencia */
+    color: white;
+    text-align: center;
+    padding: 0; /* Misma altura que el encabezado */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
